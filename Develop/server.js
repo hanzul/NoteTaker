@@ -1,21 +1,22 @@
 const express = require('express');
 const app = express();
 const path = require("path");
-const DB = require("./Develop/db/DB.js")
+const DB = require("./db/DB.json")
 const PORT = process.env.PORT || 3000
 
 // Data parsing
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(express.static("public"));
-// Routes
-// ===========================================================
-app.get('/', (req, res) => {
-    res.send('Welcome to the Star Wars Page!');
-  });
 
 
-//APIs
+
+app.use('/api', require('./routes/apiRoutes'))
+app.use('/', require('./routes/htmlRoutes'))
+
+
+
+
 
 
 // Listen for ports
