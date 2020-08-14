@@ -13,6 +13,14 @@ class DB{
             return JSON.parse(notes);
         })
     }
+
+        writeFile(){
+            return this.writeFile().then(notes => {
+                console.log(notes);
+                return JSON.parse(notes);
+
+            })
+    }
 }
 
 module.exports = new DB()

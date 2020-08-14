@@ -15,10 +15,6 @@ app.use('/api', require('./routes/apiRoutes'))
 app.use('/', require('./routes/htmlRoutes'))
 
 
-
-
-
-
 // Listen for ports
 app.listen(PORT, () => {
     console.log(`API server now on port ${PORT} !`);
