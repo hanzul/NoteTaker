@@ -13,14 +13,26 @@ router.get('/notes', async (req, res) => {
 
 router.post('/notes', async (req, res) => {
   try {
-    const newNote = req.body;
+    const olderNotes=  await DB.readNotes();
+    const note = req.body;
 
-    const existingNote = await DB.writeNote()
-    console.log(existingNote);
-    res.json(existingNote)
+    const newNote = await DB.writeNote([...olderNotes, note]);
+    console.log(newNote);
+    res.status(200).json(newNote)
   } catch (err) {
     console.log(err);
   }
 })
+
+// router.delete('/notes',async (req, res) => {
+//   try {
+//     const delNote = 
+//     const existingNote = await DB.writeNote()
+//     console.log(existingNote);
+//     res.json(existingNote)
+//   } catch (err) {
+//     console.log(err);
+//   }
+// })
 
 module.exports = router; 

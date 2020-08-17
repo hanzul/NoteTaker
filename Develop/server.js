@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(express.static("public"));
 
 
-
+//In order to make request to the server involving data we use api base
 app.use('/api', require('./routes/apiRoutes'))
 app.use('/', require('./routes/htmlRoutes'))
 
