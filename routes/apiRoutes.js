@@ -29,14 +29,6 @@ router.delete('/notes/:id',async (req, res) => {
   DB.removeNote(req.params.id)
   .then(() => res.json({message: 'note deleted'}))
   .catch(err => res.status(500).json(err))
-  /*try {
-    const delNote =
-    const existingNote = await DB.writeNote()
-    console.log(existingNote);
-    res.json(existingNote)
-  } catch (err) {
-    console.log(err);
-  }*/
 })
 
 module.exports = router;
